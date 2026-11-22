@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "leaflet/dist/leaflet.css";
 import "./globals.css";
 import "./etapa2.css";
+import "./etapa3.css";
 import Sidebar from "../components/Sidebar";
 
 export const metadata: Metadata = {

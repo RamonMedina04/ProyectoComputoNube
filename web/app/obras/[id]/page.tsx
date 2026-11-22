@@ -1,10 +1,11 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, CalendarDays, CircleAlert, FileText, MapPin, Wallet, ChartColumnIncreasing, Info, Building2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarDays, CircleAlert, MapPin, Wallet, ChartColumnIncreasing, Info, Building2 } from "lucide-react";
 import { obras } from "../../../data/obras";
 import { fecha, pesos } from "../../../lib/format";
 import { porcentajeEjercido, brechaAvance, diferenciaFinancieraFisica } from "../../../lib/analisis";
 import StatusPill from "../../../components/StatusPill";
+import DocumentosObra from "../../../components/DocumentosObra";
 
 export function generateStaticParams() { return obras.map((obra) => ({ id: obra.id })); }
 
@@ -43,7 +44,7 @@ export default async function DetalleObra({ params }: { params: Promise<{ id: st
       </section>
       <section className="panel panel-padding"><h2><Building2 size={18}/> Datos del proyecto</h2><dl className="info-list"><div><dt>Dependencia responsable</dt><dd>{obra.dependencia}</dd></div><div><dt>Tipo de obra</dt><dd>{obra.categoria}</dd></div><div><dt>Inicio previsto</dt><dd>{fecha(obra.fechaInicio)}</dd></div><div><dt>Entrega prevista</dt><dd>{fecha(obra.fechaEntrega)}</dd></div><div><dt>Última actualización ficticia</dt><dd>{fecha(obra.ultimaActualizacion)}</dd></div><div><dt>Ubicación aproximada</dt><dd>{obra.lat.toFixed(3)}, {obra.lng.toFixed(3)}</dd></div></dl></section>
       <section className="panel panel-padding"><h2><CalendarDays size={18}/> Descripción</h2><p className="body-copy">{obra.descripcion}</p><div className="mini-note"><Info size={17}/> El estatus mostrado es un dato de prueba; no proviene de un sistema predictivo ni de un análisis automatizado.</div></section>
-      <section className="panel panel-padding"><h2><FileText size={18}/> Documentos y transparencia</h2><p className="body-copy">Aún no se han vinculado contratos, reportes oficiales ni fuentes documentales para esta obra ficticia.</p><div className="documents-placeholder"><FileText size={27}/><strong>Sin documentos de respaldo</strong><span>En una versión con datos reales, aquí aparecerían enlaces verificables a los PDF de origen y su fecha de consulta.</span></div></section>
+      <DocumentosObra obraId={obra.id}/>
       <section className="panel panel-padding"><h2><CircleAlert size={18}/> Cómo interpretar los indicadores</h2><p className="body-copy">El porcentaje ejercido se calcula como recursos ejercidos divididos entre presupuesto aprobado, multiplicado por 100. La brecha física es avance real menos avance programado.</p><p className="body-copy">*El saldo se obtiene restando el monto ejercido al presupuesto aprobado; no necesariamente representa dinero disponible ni compromisos pendientes.</p><Link className="link-inline" href="/analisis">Consultar análisis financiero <ArrowRight size={16}/></Link></section>
     </div>
   </div>;

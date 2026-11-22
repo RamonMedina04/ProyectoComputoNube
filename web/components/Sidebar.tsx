@@ -2,12 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, ChartColumnIncreasing, GitBranch, LayoutDashboard, Landmark, MapPinned } from "lucide-react";
+import { BookOpenText, ChartColumnIncreasing, GitBranch, LayoutDashboard, Landmark, MapPinned, FileText, Database } from "lucide-react";
 
 const enlaces = [
   { href: "/", label: "Panel general", icon: LayoutDashboard },
   { href: "/obras", label: "Catálogo de obras", icon: Landmark },
   { href: "/analisis", label: "Análisis financiero", icon: ChartColumnIncreasing },
+  { href: "/documentos", label: "Documentos", icon: FileText },
+  { href: "/fuentes", label: "Fuentes públicas", icon: Database },
   { href: "/metodologia", label: "Metodología", icon: BookOpenText },
 ];
 

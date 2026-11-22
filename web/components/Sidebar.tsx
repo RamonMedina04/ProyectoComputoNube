@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BookOpenText, ChartColumnIncreasing, GitBranch, LayoutDashboard, Landmark, MapPinned, FileText, Database } from "lucide-react";
+import { BookOpenText, ChartColumnIncreasing, GitBranch, LayoutDashboard, Landmark, MapPinned, FileText, Database, FileSpreadsheet } from "lucide-react";
 
 const enlaces = [
   { href: "/", label: "Panel general", icon: LayoutDashboard },
   { href: "/obras", label: "Catálogo de obras", icon: Landmark },
   { href: "/analisis", label: "Análisis financiero", icon: ChartColumnIncreasing },
   { href: "/documentos", label: "Documentos", icon: FileText },
+  { href: "/datos-oficiales", label: "Datos públicos", icon: FileSpreadsheet },
   { href: "/fuentes", label: "Fuentes públicas", icon: Database },
   { href: "/metodologia", label: "Metodología", icon: BookOpenText },
 ];
@@ -27,7 +28,7 @@ export default function Sidebar() {
     <div className="sidebar-bottom">
       <div className="sidebar-glow"><ChartColumnIncreasing size={20}/><strong>Datos para entender, no solo observar.</strong><span>Indicadores claros sobre infraestructura pública en México.</span></div>
       <a className="sidebar-github" href="https://github.com" target="_blank" rel="noreferrer"><GitBranch size={16}/> Proyecto colaborativo</a>
-      <small>Prototipo académico · Información ficticia</small>
+      <small>Prototipo académico · Datos simulados y origen declarado</small>
     </div>
   </aside>;
 }
